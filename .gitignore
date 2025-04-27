@@ -74,6 +74,6 @@ yarn-error.log
 !.yarn/sdks
 !.yarn/versions
 
-# 參考範本gradle.properties_demo
+# 參考範本gradle.properties_demo, 正式使用移除"_demo", 檔案名稱為: gradle.properties
 gradle.properties
 **.keystore

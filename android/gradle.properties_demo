@@ -37,3 +37,8 @@ newArchEnabled=true
 # Use this property to enable or disable the Hermes JS engine.
 # If set to false, you will be using JSC instead.
 hermesEnabled=true
+
+PROJECT_UPLOAD_STORE_FILE=PATH_TO_DEMO_KEY.keystore
+PROJECT_UPLOAD_KEY_ALIAS=DEMO_KEY_ALIAS
+PROJECT_UPLOAD_STORE_PASSWORD=DEMO_STORE_PASSWORD
+PROJECT_UPLOAD_KEY_PASSWORD=DEMO_PASSWORD
