@@ -1,6 +1,6 @@
 // react
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View} from 'react-native';
 import {ActivityIndicator, useTheme} from 'react-native-paper';
 
 // component

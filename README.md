@@ -1,97 +1,38 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Who Was Here 誰來過 Mobile App (React Native)
 
-# Getting Started
+透過影像偵測技術，讓住戶能快速查詢「曾出現在監控畫面中的訪客」，無需翻閱完整錄影。此 Android 應用搭配後端伺服器，提供便利的訪客查詢體驗。
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## Android Client (APP)
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+1. **查詢 UI**  
+   使用者可於 APP 中輸入查詢條件（日期、時間等），按下查詢後呼叫後端 API。
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+2. **資料呈現**  
+   APP 解析回傳 JSON 結果，並以圖文列表呈現當時的訪客截圖與時間。
 
-```sh
-# Using npm
-npm start
+### DEMO
 
-# OR using Yarn
-yarn start
-```
+![image](./imgFolder/demo01.png)
+![image](./imgFolder/demo02.png)
+![image](./imgFolder/demo03.png)
 
-## Step 2: Build and run your app
+## 討論
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+- 安卓開發環境
 
-### Android
+  - React Native 需搭配特定版本的開發環境
+  - 虛擬機反應與實機有時落差過大, 例如: HTTP REQUEST, 虛擬機可能自動阻擋頻繁呼叫
+  - Android 原生開發仍以舊版資源較多, Jetpack compose 好用但資源過少, 不易參考
+  - Android 原生優點在於效能, 且須留意記憶體問題 (移動裝置資源有限, 若發現記憶體飆高須留意是否有相關問題)
 
-```sh
-# Using npm
-npm run android
+## 開發環境防呆項目
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- 本機測試使用 10.0.2.2 (專用接口)
+- 新建環境預設禁用 HTTP 與未驗證 HTTPS 憑證
+- 包版需要簽名（自簽也可以），產生的.keystore 與設定到 module/gradle.properties
+- build.gradle 設定分別在 module、app 兩層，分別控制全域與細項
+- 版本號控制：android\app\build.gradle
+- SafeView: 避開頂端/底部工具列等畫面，以便排版
+- ICON 產生使用套件 react-native-make `npx react-native set-icon --path {PATH_TO_FILE}`

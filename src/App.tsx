@@ -17,6 +17,7 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#F5F5DC', // 米白色
   },
 });
 
