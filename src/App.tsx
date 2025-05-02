@@ -1,24 +1,15 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-
+import {enableScreens} from 'react-native-screens';
 import HomeScreen from './screen/HomeScreen';
 
 function App(): React.JSX.Element {
+  enableScreens();
   return (
     <SafeAreaProvider>
-      <View style={styles.container}>
-        <HomeScreen />
-      </View>
+      <HomeScreen />
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5F5DC', // 米白色
-  },
-});
 
 export default App;

@@ -29,6 +29,7 @@
 
 ## 開發環境防呆項目
 
+- 本地端編譯 APK `cd android  ./gradlew assembleRelease`
 - 本機測試使用 10.0.2.2 (專用接口)
 - 新建環境預設禁用 HTTP 與未驗證 HTTPS 憑證
 - 包版需要簽名（自簽也可以），產生的.keystore 與設定到 module/gradle.properties

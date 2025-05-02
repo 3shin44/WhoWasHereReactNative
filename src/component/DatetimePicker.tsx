@@ -37,12 +37,17 @@ const DatetimePicker = ({
     }));
   };
 
+  const timeformat = {
+    fullYear: 'YYYY-MM-DD',
+    timeOnly: 'HH:mm',
+  };
+
   // emit事件
   const onPressQueryEvent = () => {
     onEmitQueryEvent({
-      queryDate: moment(state.queryDate).format('YYYY-MM-DD'),
-      startTime: moment(state.startTime).format('HH:mm:ss'),
-      endTime: moment(state.endTime).format('HH:mm:ss'),
+      queryDate: moment(state.queryDate).format(timeformat.fullYear),
+      startTime: moment(state.startTime).format(timeformat.timeOnly),
+      endTime: moment(state.endTime).format(timeformat.timeOnly),
     });
   };
 
@@ -57,7 +62,7 @@ const DatetimePicker = ({
         style={styles.queryBtn}
         mode="contained-tonal"
         onPress={() => setState(prev => ({...prev, queryDateOpen: true}))}>
-        查詢日期：{moment(state.queryDate).format('YYYY-MM-DD')}
+        查詢日期：{moment(state.queryDate).format(timeformat.fullYear)}
       </Button>
       <DatePicker
         modal
@@ -79,7 +84,7 @@ const DatetimePicker = ({
             style={styles.queryBtn}
             mode="contained-tonal"
             onPress={() => setState(prev => ({...prev, startTimeOpen: true}))}>
-            起始時間：{moment(state.startTime).format('HH:mm:ss')}
+            起始時間：{moment(state.startTime).format(timeformat.timeOnly)}
           </Button>
           <DatePicker
             modal
@@ -104,7 +109,7 @@ const DatetimePicker = ({
             style={styles.queryBtn}
             mode="contained-tonal"
             onPress={() => setState(prev => ({...prev, endTimeOpen: true}))}>
-            結束時間：{moment(state.endTime).format('HH:mm:ss')}
+            結束時間：{moment(state.endTime).format(timeformat.timeOnly)}
           </Button>
           <DatePicker
             modal

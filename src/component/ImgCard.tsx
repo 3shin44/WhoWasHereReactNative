@@ -29,7 +29,7 @@ const ImgCard = ({
     if (moreItems.length > 0) {
       setViewList(prev => [...prev, ...moreItems]);
     }
-  }, [viewList, sourceList]);
+  }, [propsVistorList.length, viewList, sourceList]);
 
   // 每一個 item 渲染（用 useCallback 包起來，效能更好）
   const renderItem = useCallback(
